@@ -6,7 +6,8 @@
       "default",
       "!{projectRoot}/**/*.spec.ts",
       "!{projectRoot}/**/*.test.ts",
-      "!{projectRoot}/**/__tests__/**/*"
+      "!{projectRoot}/**/__tests__/**/*",
+      "!{projectRoot}/CHANGELOG.md"
     ],
     "sharedGlobals": ["{workspaceRoot}/tsconfig.base.json"]
   },
@@ -34,5 +35,115 @@
   "workspaceLayout": {
     "appsDir": "apps",
     "libsDir": "packages"
+  },
+  "release": {
+    "projectsRelationship": "independent",
+    "projects": ["packages/*", "apps/*"],
+    "changelog": {
+      "workspaceChangelog": {
+        "createRelease": false,
+        "file": "{workspaceRoot}/CHANGELOG.md",
+        "renderOptions": {
+          "authors": true,
+          "commitReferences": true,
+          "versionTitleDate": true
+        }
+      },
+      "projectChangelogs": {
+        "createRelease": false,
+        "file": "{projectRoot}/CHANGELOG.md",
+        "renderOptions": {
+          "authors": true,
+          "commitReferences": true,
+          "versionTitleDate": true
+        }
+      }
+    },
+    "version": {
+      "conventionalCommits": true,
+      "generatorOptions": {
+        "fallbackCurrentVersionResolver": "disk"
+      }
+    },
+    "releaseTagPattern": "{projectName}@{version}",
+    "git": {
+      "commit": true,
+      "commitMessage": "chore(release): {projectName} {version} [skip ci]",
+      "tag": true
+    },
+    "conventionalCommits": {
+      "types": {
+        "feat": {
+          "semverBump": "minor",
+          "changelog": {
+            "title": "Features",
+            "hidden": false
+          }
+        },
+        "fix": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Bug Fixes",
+            "hidden": false
+          }
+        },
+        "perf": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Performance Improvements",
+            "hidden": false
+          }
+        },
+        "refactor": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Code Refactoring",
+            "hidden": false
+          }
+        },
+        "docs": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Documentation",
+            "hidden": false
+          }
+        },
+        "build": {
+          "semverBump": "patch",
+          "changelog": {
+            "title": "Build System",
+            "hidden": false
+          }
+        },
+        "chore": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Chores",
+            "hidden": true
+          }
+        },
+        "ci": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "CI/CD",
+            "hidden": true
+          }
+        },
+        "test": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Tests",
+            "hidden": true
+          }
+        },
+        "style": {
+          "semverBump": "none",
+          "changelog": {
+            "title": "Styles",
+            "hidden": true
+          }
+        }
+      }
+    }
   }
 }

@@ -1,0 +1,26 @@
+#!/usr/bin/env sh
+
+# Pre-push hook: Run affected tests and lint before pushing
+# Skips gracefully if base branch doesn't exist or no test/lint targets
+
+echo "Pre-push checks..."
+
+# Check if base branch exists for affected detection
+if git rev-parse --verify main >/dev/null 2>&1; then
+  BASE_BRANCH="main"
+elif git rev-parse --verify master >/dev/null 2>&1; then
+  BASE_BRANCH="master"
+else
+  echo "No main/master branch found, skipping affected checks"
+  exit 0
+fi
+
+# Run affected tests (skip if no test target exists)
+echo "Running affected tests (base: $BASE_BRANCH)..."
+npx nx affected --target=test --base="$BASE_BRANCH" --head=HEAD 2>/dev/null || true
+
+# Run affected lint (skip if no lint target exists)
+echo "Running affected lint (base: $BASE_BRANCH)..."
+npx nx affected --target=lint --base="$BASE_BRANCH" --head=HEAD 2>/dev/null || true
+
+echo "Pre-push checks complete"
