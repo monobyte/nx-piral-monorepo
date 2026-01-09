@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.piral.io/schemas/piral-v0.json",
+  "name": "@proj/shell",
+  "version": "1.0.0",
+  "bundler": "rspack"
+}

@@ -1,0 +1,68 @@
+/**
+ * @proj/grid - Combined AG-Grid styles
+ *
+ * This file is exported as '@proj/grid/styles' for consumers
+ * who need to import the styles separately.
+ */
+
+/* AG-Grid core styles are imported in the main index.ts */
+
+/* Custom grid theme overrides */
+.ag-theme-quartz,
+.ag-theme-quartz-dark {
+  --ag-font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  --ag-font-size: 13px;
+  --ag-border-radius: 8px;
+}
+
+/* Header styling */
+.ag-theme-quartz .ag-header,
+.ag-theme-quartz-dark .ag-header {
+  font-weight: 600;
+}
+
+/* Cell styling */
+.ag-theme-quartz .ag-cell,
+.ag-theme-quartz-dark .ag-cell {
+  display: flex;
+  align-items: center;
+}
+
+/* Row hover effects */
+.ag-theme-quartz .ag-row:hover,
+.ag-theme-quartz-dark .ag-row:hover {
+  transition: background-color 0.15s ease;
+}
+
+/* Pagination styling */
+.ag-theme-quartz .ag-paging-panel,
+.ag-theme-quartz-dark .ag-paging-panel {
+  border-top: 1px solid var(--ag-border-color);
+  padding: 8px 12px;
+}
+
+/* Selection checkbox styling */
+.ag-theme-quartz .ag-checkbox-input-wrapper,
+.ag-theme-quartz-dark .ag-checkbox-input-wrapper {
+  --ag-checkbox-border-radius: 4px;
+}
+
+/* Filter styling */
+.ag-theme-quartz .ag-filter,
+.ag-theme-quartz-dark .ag-filter {
+  padding: 8px;
+}
+
+/* Loading and no-rows overlays */
+.ag-theme-quartz .ag-overlay-loading-wrapper,
+.ag-theme-quartz-dark .ag-overlay-loading-wrapper,
+.ag-theme-quartz .ag-overlay-no-rows-wrapper,
+.ag-theme-quartz-dark .ag-overlay-no-rows-wrapper {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.ag-theme-quartz-dark .ag-overlay-loading-wrapper,
+.ag-theme-quartz-dark .ag-overlay-no-rows-wrapper {
+  background-color: rgba(30, 30, 30, 0.9);
+}

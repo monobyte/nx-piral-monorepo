@@ -1,0 +1,6 @@
+{
+  "$schema": "https://docs.piral.io/schemas/pilet-v0.json",
+  "name": "@proj/mfe1",
+  "version": "1.0.0",
+  "bundler": "rspack"
+}

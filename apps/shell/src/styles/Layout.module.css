@@ -1,0 +1,31 @@
+.header {
+  background-color: var(--mantine-color-blue-6);
+  color: white;
+}
+
+.logo {
+  color: white;
+  font-weight: 700;
+}
+
+.navbar {
+  background-color: var(--mantine-color-gray-0);
+}
+
+:global([data-mantine-color-scheme='dark']) .navbar {
+  background-color: var(--mantine-color-dark-7);
+}
+
+.navLink {
+  border-radius: var(--mantine-radius-md);
+  margin-bottom: 4px;
+}
+
+.main {
+  background-color: var(--mantine-color-gray-0);
+  min-height: calc(100vh - 60px);
+}
+
+:global([data-mantine-color-scheme='dark']) .main {
+  background-color: var(--mantine-color-dark-8);
+}

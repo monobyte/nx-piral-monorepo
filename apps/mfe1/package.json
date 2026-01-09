@@ -1,0 +1,35 @@
+{
+  "name": "@proj/mfe1",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pilet demonstrating Mantine UI components",
+  "main": "dist/index.js",
+  "source": "src/index.tsx",
+  "scripts": {
+    "build": "pilet build",
+    "serve": "pilet debug --port 3001 --app-shell @proj/shell",
+    "pack": "pilet pack",
+    "clean": "rm -rf dist .cache *.tgz",
+    "validate": "pilet validate"
+  },
+  "piral": {
+    "name": "@proj/shell",
+    "version": "1.0.0",
+    "bundler": "rspack"
+  },
+  "devDependencies": {
+    "@proj/shell": "*",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "piral-cli": "^1.9.2",
+    "piral-cli-rspack": "^1.1.0",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@mantine/core": "*",
+    "@mantine/hooks": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router-dom": "*"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "@proj/monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Nx-managed Package-Based Monorepo with Piral micro-frontends",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "nx run-many --target=build --all",
+    "build:shell": "nx build shell",
+    "build:mfe1": "nx build mfe1",
+    "build:mfe2": "nx build mfe2",
+    "build:pilets": "nx run-many --target=build --projects=mfe1,mfe2",
+    "serve:shell": "nx serve shell",
+    "serve:mfe1": "nx serve mfe1",
+    "serve:mfe2": "nx serve mfe2",
+    "dev": "nx run-many --target=serve --projects=shell,mfe1,mfe2 --parallel",
+    "lint": "nx run-many --target=lint --all",
+    "test": "nx run-many --target=test --all",
+    "clean": "nx run-many --target=clean --all && rm -rf node_modules"
+  },
+  "devDependencies": {
+    "nx": "^20.3.0",
+    "@nx/js": "^20.3.0",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "packageManager": "npm@10.2.0"
+}
