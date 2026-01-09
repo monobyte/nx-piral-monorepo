@@ -31,11 +31,20 @@
     }
   },
   "defaultBase": "main",
-  "plugins": [],
-  "workspaceLayout": {
-    "appsDir": "apps",
-    "libsDir": "packages"
-  },
+  "plugins": [
+    {
+      "plugin": "@nx/js/typescript",
+      "options": {
+        "typecheck": {
+          "targetName": "typecheck"
+        },
+        "build": {
+          "targetName": "build",
+          "configName": "tsconfig.build.json"
+        }
+      }
+    }
+  ],
   "release": {
     "projectsRelationship": "independent",
     "projects": ["packages/*", "apps/*"],
@@ -145,5 +154,7 @@
         }
       }
     }
-  }
+  },
+  "useInferencePlugins": true,
+  "useDaemonProcess": true
 }
