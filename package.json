@@ -13,18 +13,48 @@
     "build:mfe1": "nx build mfe1",
     "build:mfe2": "nx build mfe2",
     "build:pilets": "nx run-many --target=build --projects=mfe1,mfe2",
+    "build:affected": "nx affected --target=build",
     "serve:shell": "nx serve shell",
     "serve:mfe1": "nx serve mfe1",
     "serve:mfe2": "nx serve mfe2",
     "dev": "nx run-many --target=serve --projects=shell,mfe1,mfe2 --parallel",
     "lint": "nx run-many --target=lint --all",
+    "lint:affected": "nx affected --target=lint",
     "test": "nx run-many --target=test --all",
-    "clean": "nx run-many --target=clean --all && rm -rf node_modules"
+    "test:affected": "nx affected --target=test",
+    "clean": "nx run-many --target=clean --all && rm -rf node_modules",
+    "prepare": "husky",
+    "commitlint": "commitlint --edit",
+    "release": "nx release",
+    "release:version": "nx release version",
+    "release:changelog": "nx release changelog",
+    "release:publish": "nx release publish",
+    "release:dry-run": "nx release --dry-run",
+    "release:affected": "nx release --projects=$(nx show projects --affected --sep=,)",
+    "release:affected:dry-run": "nx release --projects=$(nx show projects --affected --sep=,) --dry-run",
+    "release:first": "nx release --first-release",
+    "version:check": "nx release version --dry-run --verbose",
+    "graph": "nx graph",
+    "affected:graph": "nx affected:graph",
+    "versions": "node scripts/check-versions.js"
   },
   "devDependencies": {
-    "nx": "^20.3.0",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
     "@nx/js": "^20.3.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "nx": "^20.3.0",
+    "prettier": "^3.4.2",
     "typescript": "^5.4.5"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ],
+    "*.{json,md,css,scss}": [
+      "prettier --write"
+    ]
   },
   "engines": {
     "node": ">=18.0.0",

@@ -96,6 +96,9 @@ nx-piral-monorepo/
 - **CSS Modules**: Scoped styling across all apps and packages
 - **TypeScript**: Full type safety throughout the monorepo
 - **Import Maps**: Shared dependencies across pilets
+- **Independent Releases**: Per-project versioning with Nx Release
+- **Conventional Commits**: Enforced commit format with commitlint + husky
+- **Automated Changelogs**: Per-project changelog generation
 
 ## Shared Dependencies (Import Maps)
 
@@ -262,6 +265,49 @@ npm run build
 # - dist/          (bundled pilet)
 # - *.tgz          (packaged pilet for deployment)
 ```
+
+## Release & Versioning
+
+This monorepo uses **independent versioning** - each project is versioned separately based on its own changes.
+
+### Commit Convention
+
+Commits must follow the [Conventional Commits](https://www.conventionalcommits.org/) format:
+
+```bash
+# Format: <type>(<scope>): <subject>
+
+feat(shell): add dark mode toggle      # Minor bump
+fix(mfe1): resolve form validation     # Patch bump
+docs(grid): update API documentation   # No bump
+```
+
+### Release Commands
+
+```bash
+# Check current versions
+npm run versions
+
+# Dry run - see what would be released
+npm run release:dry-run
+
+# Release all changed projects
+npm run release
+
+# Release only affected projects
+npm run release:affected
+
+# First release (initialize versions)
+npm run release:first
+```
+
+### Git Hooks
+
+- **pre-commit**: Formats staged files with Prettier
+- **commit-msg**: Validates commit message format
+- **pre-push**: Runs affected tests and lint
+
+For detailed release documentation, see [docs/RELEASING.md](docs/RELEASING.md).
 
 ## Architecture
 

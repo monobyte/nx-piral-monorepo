@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+build/
+.nx/
+
+# Package files
+*.tgz
+package-lock.json
+
+# Changelogs (managed by nx release)
+CHANGELOG.md
+**/CHANGELOG.md
+
+# Coverage
+coverage/
+
+# IDE
+.idea/
+.vscode/
