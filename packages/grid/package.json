@@ -1,0 +1,43 @@
+{
+  "name": "@proj/grid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pre-configured AG-Grid wrapper for the monorepo",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles": {
+      "import": "./dist/styles.css",
+      "require": "./dist/styles.css"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json && npm run copy-styles",
+    "copy-styles": "cp src/styles/grid.css dist/styles.css",
+    "clean": "rm -rf dist",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "ag-grid-community": "^32.3.3",
+    "ag-grid-react": "^32.3.3"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "typescript": "^5.4.5"
+  }
+}

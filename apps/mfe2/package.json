@@ -1,0 +1,38 @@
+{
+  "name": "@proj/mfe2",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Pilet demonstrating AG-Grid integration",
+  "main": "dist/index.js",
+  "source": "src/index.tsx",
+  "scripts": {
+    "build": "pilet build",
+    "serve": "pilet debug --port 3002 --app-shell @proj/shell",
+    "pack": "pilet pack",
+    "clean": "rm -rf dist .cache *.tgz",
+    "validate": "pilet validate"
+  },
+  "piral": {
+    "name": "@proj/shell",
+    "version": "1.0.0",
+    "bundler": "rspack"
+  },
+  "devDependencies": {
+    "@proj/shell": "*",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "ag-grid-community": "^32.3.3",
+    "ag-grid-react": "^32.3.3",
+    "piral-cli": "^1.9.2",
+    "piral-cli-rspack": "^1.1.0",
+    "typescript": "^5.4.5"
+  },
+  "peerDependencies": {
+    "@mantine/core": "*",
+    "@mantine/hooks": "*",
+    "@proj/grid": "*",
+    "react": "*",
+    "react-dom": "*",
+    "react-router-dom": "*"
+  }
+}

@@ -1,0 +1,32 @@
+/**
+ * DataGrid component styles
+ */
+
+.gridContainer {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+}
+
+.overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Theme customizations */
+:global(.ag-theme-quartz) .gridContainer,
+:global(.ag-theme-quartz-dark) .gridContainer {
+  --ag-border-radius: 8px;
+  --ag-row-hover-color: rgba(0, 0, 0, 0.04);
+  --ag-selected-row-background-color: rgba(25, 118, 210, 0.08);
+}
+
+:global(.ag-theme-quartz-dark) .gridContainer {
+  --ag-row-hover-color: rgba(255, 255, 255, 0.04);
+  --ag-selected-row-background-color: rgba(25, 118, 210, 0.2);
+}
