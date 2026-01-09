@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "description": "Piral App Shell with Mantine UI",
-  "app": "dist/index.html",
+  "app": "src/index.html",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "scripts": {
@@ -20,8 +20,7 @@
       "react-dom",
       "react-router-dom",
       "@mantine/core",
-      "@mantine/hooks",
-      "@proj/grid"
+      "@mantine/hooks"
     ],
     "files": [
       "dist/release/**/*",
@@ -29,15 +28,14 @@
     ]
   },
   "importmap": {
-    "imports": {
-      "react": "./node_modules/react/",
-      "react-dom": "./node_modules/react-dom/",
-      "react-router-dom": "./node_modules/react-router-dom/",
-      "@mantine/core": "./node_modules/@mantine/core/",
-      "@mantine/hooks": "./node_modules/@mantine/hooks/",
-      "@proj/grid": "../../packages/grid/"
-    },
-    "inherit": ["react", "react-dom", "react-router-dom", "@mantine/core", "@mantine/hooks", "@proj/grid"]
+    "imports": {},
+    "inherit": [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "@mantine/core",
+      "@mantine/hooks"
+    ]
   },
   "dependencies": {
     "@mantine/core": "^7.14.0",
